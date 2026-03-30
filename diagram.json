@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "author": "SHREYA Dcs",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -76.2, "left": -19.8, "attrs": {} },
+    { "type": "board-mfrc522", "id": "rfid1", "top": -348.25, "left": -361.36, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": -408.6, "left": 316.9, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -306.9, "left": -91.8, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -78.8, "left": -340, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -300.8,
+      "left": 428,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -80.4,
+      "left": 426.2,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -22.8,
+      "left": 483.8,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-led", "id": "led3", "top": 25.2, "left": 531.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 175.2,
+      "left": 347.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -44.05,
+      "left": 345.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 80.75,
+      "left": 355.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 51.95,
+      "left": 355.2,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [ "v259.2", "h374.4" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v38.4", "h336.1" ] ],
+    [ "uno:GND.2", "rtc1:GND", "black", [ "v0" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v230.4", "h259.2" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h-38.4", "v163.2" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "rtc1:5V", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "rtc1:SDA", "uno:A4", "green", [ "h-86.4", "v249.3" ] ],
+    [ "rtc1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "uno:A2", "r1:1", "green", [ "v0" ] ],
+    [ "uno:A3", "r3:1", "green", [ "v0" ] ],
+    [ "uno:A4", "r2:1", "green", [ "v0" ] ],
+    [ "bz1:2", "uno:A5", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.3", "green", [ "v-134.4", "h-240" ] ],
+    [ "keypad1:R1", "uno:3", "#8f4814", [ "v-355.2", "h470.4" ] ],
+    [ "keypad1:R3", "uno:5", "orange", [ "v-355.2", "h412.5" ] ],
+    [ "keypad1:R2", "uno:4", "red", [ "v0" ] ],
+    [ "keypad1:R4", "uno:6", "gold", [ "v0" ] ],
+    [ "keypad1:C1", "uno:7", "blue", [ "v0" ] ],
+    [ "keypad1:C2", "uno:8", "violet", [ "v0" ] ],
+    [ "keypad1:C3", "uno:A0", "purple", [ "v0" ] ],
+    [ "keypad1:C4", "uno:A1", "magenta", [ "v0" ] ],
+    [ "rfid1:RST", "uno:9", "green", [ "h345.6", "v86.4", "h9.6" ] ],
+    [ "rfid1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "uno:10", "rfid1:SDA", "green", [ "v-240", "h-431.3", "v0" ] ],
+    [ "rfid1:3.3V", "uno:3.3V", "green", [ "h0" ] ],
+    [ "rfid1:MOSI", "uno:11", "green", [ "h0" ] ],
+    [ "rfid1:MISO", "uno:12", "green", [ "h0" ] ],
+    [ "rfid1:SCK", "uno:13", "green", [ "h0" ] ],
+    [ "led1:A", "r1:2", "green", [ "v-9.6", "h-48" ] ],
+    [ "led2:A", "r3:2", "green", [ "v48", "h-105.6" ] ],
+    [ "led3:A", "r2:2", "green", [ "v9.6", "h-163.2" ] ],
+    [ "led1:C", "uno:GND.3", "black", [ "v0" ] ],
+    [ "led2:C", "uno:GND.3", "black", [ "v0" ] ],
+    [ "led3:C", "uno:GND.3", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
