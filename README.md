@@ -5,6 +5,7 @@ IoT-based medicine expiry monitoring system using Arduino Uno R3.
 
 ## Features
 - RFID-based medicine identification
+- cloud integrated to get live results
 - Real-time expiry computation via DS1307 RTC
 - DHT22 environmental monitoring (temp + humidity)
 - Three-tier alert system (SAFE / WARNING / CRITICAL)
